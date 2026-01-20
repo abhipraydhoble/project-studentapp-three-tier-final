@@ -27,11 +27,25 @@ aws --version
 ````
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
+sudo apt update && sudo apt install terraform -y
+````
+**:Install kubectl**
+
+````
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ````
 ````
-terraform --version
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ````
+````
+chmod +x kubectl
+mkdir -p ~/.local/bin
+mv ./kubectl ~/.local/bin/kubectl
+````
+````
+kubectl version --client
+````
+
 **Set Up aws profile**
 ````
 aws configure --profile "tf-user"
@@ -57,7 +71,10 @@ provider "aws {
 terraform init
 ````
 ---
-
+**Cluster Login**
+````
+aws eks update-kubeconfig --name cbz-cluster
+````
 
 
 ### 1. Setup MariaDB 
