@@ -3,7 +3,9 @@
 **launch and ec2 instance**
 - instance type should be medium or large
 - 30 gb disk
-
+**create iam role**
+  - give admin acess
+  - and attach to ec2 instance
 **Clone Repository**
 ````
 git clone https://github.com/abhipraydhoble/student-registration.git
@@ -46,21 +48,6 @@ mv ./kubectl ~/.local/bin/kubectl
 kubectl version --client
 ````
 
-**Set Up aws profile**
-````
-aws configure --profile "tf-user"
-````
--  provide acccess key
--  provide secret key
--  region
-
-**add profile to provider.tf**
-```tf
-provider "aws {
- region = "us-east-2"
- profile = "tf-user"
-}
-```
 
 #### Changes:
 - **main.tf** instance-type
