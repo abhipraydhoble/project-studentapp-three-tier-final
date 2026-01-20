@@ -1,4 +1,17 @@
-# setup infra
+## Setup project infrastructure using terraform modules
+
+**launch and ec2 instance**
+- instance type should be medium or large
+- 30 gb disk
+
+**Clone Repository**
+````
+https://github.com/abhipraydhoble/student-registration.git
+````
+````
+cd student-registration/infra
+````
+
 **AWS CLI Installation:**
 
 ````
@@ -30,14 +43,14 @@ aws configure --profile "tf-user"
 **add profile to provider.tf**
 ```tf
 provider "aws {
- region = "ap-southeast-1"
+ region = "us-east-2"
  profile = "tf-user"
 }
 ```
 
 #### Changes:
 - **main.tf** instance-type
-- **main.tf** bucket-name
+- **provider.tf** add provider details 
 
 **Initialize terraform**
 ````
@@ -49,8 +62,7 @@ terraform init
 
 ### 1. Setup MariaDB 
 - wait for cluster and rds creation
-- Create MariaDB instance using AWS RDS. and connect to cluster worker node
-- Connect to your RDS instance :
+- connect to cluster worker node
 
 ```bash
 sudo yum update -y
