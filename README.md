@@ -3,6 +3,7 @@
 **launch and ec2 instance**
 - instance type should be medium or large
 - 30 gb disk
+---
 **create iam role**
   - give admin acess
   - and attach to ec2 instance
