@@ -1,6 +1,6 @@
 ## Tech Stack
 
-- Backend: Java 17, Spring Boot, Maven
+- Backend: Java 21, Spring Boot, Maven
 - Frontend: React 18, Node.js
 - Database: MySQL 8.0 (AWS RDS)
 - Container: Docker
